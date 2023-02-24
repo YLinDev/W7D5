@@ -19,3 +19,32 @@ Migrating to CreateUsers (20230224155121)
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (147.0ms)[0m  [1m[35mCREATE DATABASE "reddit_p_development" ENCODING = 'unicode'[0m
   [1m[35m (148.5ms)[0m  [1m[35mCREATE DATABASE "reddit_p_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2023-02-24 12:14:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kaiwu/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kaiwu/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 526)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 2809)
+
+
+Started GET "/session/new" for ::1 at 2023-02-24 12:14:16 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 640)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 6831)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.0ms | Allocations: 7711)
+
+
+Started POST "/session" for ::1 at 2023-02-24 12:14:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"kaiter", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kaiter"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9:in `find_by_credentials'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 78)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1139)
+Completed 200 OK in 17ms (Views: 3.0ms | ActiveRecord: 5.2ms | Allocations: 4996)
+
+
